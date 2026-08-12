@@ -26,7 +26,22 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="scroll-lock">
+
+  <!-- Welcome Entrance Overlay -->
+  <div id="welcome-overlay" class="welcome-overlay">
+    <div class="welcome-content glass-card">
+      <span class="welcome-subtitle">Wedding Invitation</span>
+      <h1 class="welcome-title">Pooja <span class="welcome-and">weds</span> Durga Prasadh</h1>
+      <p class="welcome-invitation">We invite you to share in our celebration of love and togetherness.</p>
+      <button id="enter-btn" class="btn primary-btn enter-btn">
+        <svg viewBox="0 0 24 24" width="16" height="16" style="margin-right: 4px;">
+          <path fill="currentColor" d="M12 3v10.59l-4.29-4.3-1.42 1.42L12 16.42l5.71-5.71-1.42-1.42-4.29 4.3V3H12zm-9 15v2h18v-2H3z" />
+        </svg>
+        Open Invitation
+      </button>
+    </div>
+  </div>
 
   <!-- Floating Audio Player -->
   <div id="audio-container" class="audio-widget">

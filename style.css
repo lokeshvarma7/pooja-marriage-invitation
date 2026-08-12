@@ -1609,3 +1609,120 @@ section {
     min-width: 100%;
   }
 }
+
+/* Welcome Entrance Overlay Styles */
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-color);
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 90% 80%, rgba(138, 21, 37, 0.06) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l30 30-30 30L0 30z' fill='%23d4af37' fill-opacity='0.04' fill-rule='evenodd'/%3E%3C/svg%3E");
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: opacity 1s ease, visibility 1s ease;
+  overflow: hidden;
+}
+
+.welcome-overlay.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.welcome-content {
+  max-width: 550px;
+  width: 100%;
+  padding: 50px 40px;
+  text-align: center;
+  border: 2px solid rgba(212, 175, 55, 0.4) !important;
+  box-shadow: 0 20px 50px rgba(138, 21, 37, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  animation: welcomeZoomIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes welcomeZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.welcome-subtitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--primary-color);
+}
+
+.welcome-title {
+  font-family: var(--font-royal);
+  font-size: 2.8rem;
+  line-height: 1.2;
+  background: var(--crimson-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 10px 0;
+}
+
+.welcome-and {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.8rem;
+  color: var(--gold-color);
+  -webkit-text-fill-color: var(--gold-color);
+  display: inline-block;
+  margin: 0 8px;
+}
+
+.welcome-invitation {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.enter-btn {
+  padding: 14px 36px;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+  animation: pulseButton 2s infinite;
+}
+
+@keyframes pulseButton {
+  0% {
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+  }
+  50% {
+    box-shadow: 0 6px 30px rgba(212, 175, 55, 0.6);
+  }
+  100% {
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+  }
+}
+
+/* Scroll lock when welcome screen is visible */
+body.scroll-lock {
+  overflow: hidden !important;
+}
+
+@media (max-width: 480px) {
+  .welcome-content {
+    padding: 40px 20px;
+  }
+  .welcome-title {
+    font-size: 2.2rem;
+  }
+}

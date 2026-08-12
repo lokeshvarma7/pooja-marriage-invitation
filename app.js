@@ -79,14 +79,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // ==========================================
-  // 3. BACKGROUND MUSIC CONTROLLER
+  // 3. BACKGROUND MUSIC CONTROLLER & WELCOME ENTRANCE
   // ==========================================
   const bgMusic = document.getElementById('bg-music');
   const musicBtn = document.getElementById('music-btn');
   const playIcon = document.getElementById('play-icon');
   const pauseIcon = document.getElementById('pause-icon');
+  const welcomeOverlay = document.getElementById('welcome-overlay');
+  const enterBtn = document.getElementById('enter-btn');
   
   let isPlaying = false;
+
+  const playAudio = () => {
+    bgMusic.play()
+      .then(() => {
+        playIcon.classList.add('hidden');
+        pauseIcon.classList.remove('hidden');
+        isPlaying = true;
+      })
+      .catch(err => {
+        console.log('Play blocked by browser permissions', err);
+      });
+  };
 
   const toggleMusic = () => {
     if (isPlaying) {
@@ -95,17 +109,28 @@ document.addEventListener('DOMContentLoaded', () => {
       pauseIcon.classList.add('hidden');
       isPlaying = false;
     } else {
-      bgMusic.play()
-        .then(() => {
-          playIcon.classList.add('hidden');
-          pauseIcon.classList.remove('hidden');
-          isPlaying = true;
-        })
-        .catch(err => {
-          console.log('Play blocked by browser permissions', err);
-        });
+      playAudio();
     }
   };
+
+  // Welcome overlay handler
+  if (enterBtn && welcomeOverlay) {
+    enterBtn.addEventListener('click', () => {
+      // Play Audio on click
+      playAudio();
+
+      // Unlock scrolling
+      document.body.classList.remove('scroll-lock');
+
+      // Fade out welcome screen
+      welcomeOverlay.classList.add('fade-out');
+
+      // Clean up DOM after transition
+      setTimeout(() => {
+        welcomeOverlay.remove();
+      }, 1000);
+    });
+  }
 
   if (musicBtn && bgMusic) {
     musicBtn.addEventListener('click', toggleMusic);
@@ -118,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
         isPlaying = true;
       })
       .catch(() => {
-        // Autoplay blocked by browser. Set up background listener for any click/scroll/touch
+        // Autoplay blocked by browser. Set up background listener for any click/touch/keydown
         const autoPlayOnInteraction = () => {
           if (!isPlaying) {
             bgMusic.play()
@@ -132,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         };
 
-        const interactionEvents = ['click', 'touchstart', 'scroll', 'keydown'];
+        const interactionEvents = ['click', 'touchstart', 'keydown'];
         
         const removeInteractionListeners = () => {
           interactionEvents.forEach(evt => {
