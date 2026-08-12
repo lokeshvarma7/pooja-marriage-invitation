@@ -64,7 +64,6 @@
         <a href="#events">Ceremony</a>
         <a href="#couple">The Couple</a>
         <a href="#gallery">Gallery</a>
-        <a href="#rsvp" class="rsvp-btn-nav">RSVP</a>
       </nav>
       <button class="mobile-menu-btn" aria-label="Open navigation menu">
         <svg viewBox="0 0 24 24" width="24" height="24">
@@ -87,7 +86,6 @@
       <a href="#events" class="mobile-link">Ceremony</a>
       <a href="#couple" class="mobile-link">The Couple</a>
       <a href="#gallery" class="mobile-link">Gallery</a>
-      <a href="#rsvp" class="mobile-link rsvp-highlight">RSVP</a>
     </div>
   </div>
 
@@ -149,13 +147,6 @@
               d="M19 4H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5H7v-2h5v2zm4 4H7v-2h9v2z" />
           </svg>
           View Ceremony
-        </a>
-        <a href="#rsvp" class="btn outline-btn">
-          <svg viewBox="0 0 24 24" width="16" height="16">
-            <path fill="currentColor"
-              d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-          </svg>
-          RSVP Now
         </a>
       </div>
 
@@ -474,72 +465,6 @@
     </div>
   </section>
 
-  <!-- RSVP Section -->
-  <section id="rsvp" class="rsvp-section">
-    <div class="rsvp-bg-decoration"></div>
-    <div class="rsvp-container glass-card scroll-reveal">
-      <div class="section-header">
-        <span class="subtitle">Join Our Joy</span>
-        <h2 class="section-title">Are You <span class="gold-text">Coming?</span></h2>
-        <p class="section-intro">Please RSVP by 20th August to help us plan the arrangements perfectly.</p>
-      </div>
-
-      <!-- Form Container -->
-      <form id="rsvp-form" class="rsvp-form">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="rsvp-name">Your Full Name *</label>
-            <input type="text" id="rsvp-name" name="name" placeholder="Enter your name" required>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="rsvp-attendance">Will you attend? *</label>
-            <div class="select-wrapper">
-              <select id="rsvp-attendance" name="attendance" required>
-                <option value="" disabled selected>Select option</option>
-                <option value="yes">Yes, I will attend</option>
-                <option value="no">Sorry, I cannot attend</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="rsvp-guests">Number of Guests</label>
-            <div class="select-wrapper">
-              <select id="rsvp-guests" name="guests">
-                <option value="1">1 Person</option>
-                <option value="2">2 People</option>
-                <option value="3">3 People</option>
-                <option value="4">4+ People</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label for="rsvp-wishes">Wishes & Message</label>
-            <textarea id="rsvp-wishes" name="wishes" rows="4"
-              placeholder="Send your love, wishes or special requests..."></textarea>
-          </div>
-        </div>
-
-        <button type="submit" class="btn primary-btn submit-btn">
-          Send RSVP Response
-        </button>
-      </form>
-
-      <!-- RSVP Success State (Hidden by default) -->
-      <div id="rsvp-success" class="rsvp-success hidden">
-        <div class="success-icon">🎉</div>
-        <h3 class="success-title gold-text">Thank You!</h3>
-        <p id="success-msg" class="success-msg">Your response has been saved successfully.</p>
-        <p class="blessing-quote font-display">"May your blessings guide us on this new journey."</p>
-        <button id="rsvp-edit-btn" class="btn outline-btn">Change Response</button>
-      </div>
-    </div>
-  </section>
 
   <!-- Contact Us Section -->
   <section id="contact" class="contact-section">
@@ -591,7 +516,6 @@
     <div class="footer-ornament">🪔 🪷 🪔</div>
     <p class="couple-footer-title">Pooja & Durga Prasadh</p>
     <p class="footer-invitation">We look forward to welcoming you to our wedding celebrations!</p>
-    <p class="rsvp-reminder">Please RSVP to assist with arrangements.</p>
     <div class="divider"></div>
     <p class="copyright">&copy; 2026 PoojaWeds · Made with ❤️ for Pooja & Durga Prasadh</p>
   </footer>
